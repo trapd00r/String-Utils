@@ -8,6 +8,7 @@ use strict;
 sub longest {
   my @strings = @_;
   return unless(@strings);
+  chomp(@strings);
 
   my %len_map = ();
 
