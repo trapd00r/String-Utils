@@ -6,17 +6,15 @@ require Exporter;
 use strict;
 
 sub longest {
-  my @strings = @_;
-  return unless(@strings);
+  return unless(my @strings = @_);
   chomp(@strings);
 
   my %len_map = ();
 
-  for(@strings) {
-    $len_map{length($_)} = $_;
-  }
+  map{ $len_map{length($_)} = $_ } @strings;
+
   for my $k(sort{$b <=> $a} keys(%len_map)) {
-    return($k);
+    return $k;
   }
 }
 
